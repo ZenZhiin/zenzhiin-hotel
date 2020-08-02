@@ -1,0 +1,21 @@
+<form style="padding: 20px;" action="/room/book" method="POST">
+    <h2>Which Hotel would you like to book?</h2>
+    <div class="form-group">
+        <label class="mr-sm-2" for="room">Hotel : </label>
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="hotel" name="hotel" required>
+            <option value="" disabled selected hidden>Choose the Hotel</option>
+            {{#each hotels}}
+            {{#if dataValues.active}}
+            <option value="{{dataValues.id}}">{{dataValues.hotel_name}}</option>
+            {{/if}}
+            {{/each}}
+        </select>
+        <p class="validate" id="hotel-validate" style="display:none;">Please select a Hotel.</p>
+        <div>
+            <br>
+        </div>
+        <input type="hidden" id="checkin" name="checkin" value="{{passValue.checkin}}">
+        <input type="hidden" id="checkout" name="checkout" value="{{passValue.checkout}}">
+        <input type="hidden" id="numberOfTraveller" name="numberOfTraveller" value="{{passValue.numberOfTraveller}}">
+        <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="">Book Now</button>
+</form>

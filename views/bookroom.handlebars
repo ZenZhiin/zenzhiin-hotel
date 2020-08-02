@@ -1,0 +1,40 @@
+<h2>Choose the Room You want to book : </h2>
+<br>
+<form style="padding: 20px;" action="/room/confirm" method="POST"></form>
+<table>
+    <thead>
+        <tr>
+            <th>Information</th>
+            <th></th>
+        </tr>
+    </thead>
+    {{#each rooms}}
+    <tr style="padding: 10px;  border: 1px solid black; border-collapse: collapse;">
+        <td>
+            <label>Room Number : {{room_number}}</label>
+            <br>
+            <label>Room Type : {{room_type}}</label>
+            <br>
+            <label>Breakfast available : {{#if breakfast}} YES {{else}} NO {{/if}}</label>
+            <br>
+            <label>Total Price {{ currency }}: {{price}} </label>
+            <br>
+        </td>
+        <td style="width: 100px;">
+            <form style="padding: 20px;" action="/room/confirm" method="POST">
+                <input type="hidden" id="currency" name="currency" value="{{currency}}">
+                <input type="hidden" id="price" name="price" value="{{price}}">
+                <input type="hidden" id="hotelId" name="hotelId" value="{{hotelId}}">
+                <input type="hidden" id="checkin" name="checkin" value="{{checkin}}">
+                <input type="hidden" id="checkout" name="checkout" value="{{checkout}}">
+                <input type="hidden" id="numberOfTraveller" name="numberOfTraveller" value="{{numberOfTraveller}}">
+                <input type="hidden" id="roomId" name="roomId" value="{{room_id}}">
+                <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg"
+                    onClick="return empty()">Book This</button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<div>
+</div>

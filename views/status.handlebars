@@ -1,0 +1,32 @@
+<form style="padding: 20px;" action="/status" method="POST">
+    <h2>Search Hotel Booking Status</h2>
+     <div class="form-group">
+        <label class="mr-sm-2" for="room">Hotel : </label>
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="hotelId" name="hotelId" required>
+            <option value="" disabled selected hidden>Choose the Hotel</option>
+            {{#each hotels}}
+            {{#if dataValues.active}}
+            <option value="{{dataValues.id}}">{{dataValues.hotel_name}}</option>
+            {{/if}}
+            {{/each}}
+        </select>
+        <p class="validate" id="hotel-validate" style="display:none;">Please select a Hotel.</p>
+        <div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="firstname">Customer First Name:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstname" name="firstname"
+            placeholder="Customer Number">
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="email">Customer Email:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" name="email"
+            placeholder="Customer Email">
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="phone">Customer Phone Number:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phone" name="phone"
+            placeholder="Customer Phone Number">
+    </div>
+    <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg"
+        onClick="return empty()">Search</button>
+</form>

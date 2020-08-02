@@ -1,0 +1,39 @@
+<form style="padding: 20px;" action="/paymentComplete" method="POST">
+    <h2>Mock Payment</h2>
+
+    <label> Amount ({{information.currency}}) : {{information.price}}</label>
+    <div class="form-group">
+        <label class="mr-sm-2" for="cardnumber">Card Number:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="cardnumber" name="cardnumber"
+            placeholder="Card Number" required>
+        <p class="validate" id="cardnumber-validate" style="display:none;">Please enter your Card Number.</p>
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="cardnumber">Expire Date</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="month" name="month" placeholder="MM" required>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="year" name="year" placeholder="year" required>
+        <p class="validate" id="monthyear-validate" style="display:none;">Please enter the information.</p>
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="cvcode">CV Code</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="cvcode" name="cvcode" placeholder="CV"
+            required>
+        <p class="validate" id="cvcode-validate" style="display:none;">Please enter your Card Number.</p>
+    </div>
+
+    <input type="hidden" class="form-control mb-2 mr-sm-2 mb-sm-0" id="paymentid" name="paymentid"
+        value="{{paymentId}}">
+    <input type="hidden" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstname" name="firstname"
+        value="{{information.firstname}}">
+    <input type="hidden" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastname" name="lastname"
+        value="{{information.lastname}}">
+    <input type="hidden" class="form-control mb-2 mr-sm-2 mb-sm-0" id="currency" name="currency"
+        value="{{information.currency}}">
+    <input type="hidden" class="form-control mb-2 mr-sm-2 mb-sm-0" id="price" name="price"
+        value="{{information.price}}">
+    <input type="hidden" class="form-control mb-2 mr-sm-2 mb-sm-0" id="bookingId" name="bookingId"
+        value="{{information.bookingId}}">
+
+    <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg"
+        onClick="return empty()">Payment</button>
+</form>

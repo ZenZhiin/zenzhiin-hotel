@@ -1,0 +1,12 @@
+<label>Payment Deny!</label>
+<br>
+<label>Please try again!</label>
+<br>
+<form style="padding: 20px;" action="/payments" method="GET">
+    <label>{{information.paymentid}} - Amount ( {{information.currency}} ) : {{information.price}}</label>
+    <input type="hidden" name="paymentId" id="paymentId" value="{{information.paymentid}}" />
+    <input type="hidden" name="currency" id="currency" value="{{information.currency}}" />
+    <input type="hidden" name="price" id="price" value="{{information.price}}" />
+    <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Try
+        Again</button>
+</form>

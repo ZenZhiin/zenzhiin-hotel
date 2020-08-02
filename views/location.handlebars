@@ -1,0 +1,37 @@
+<form style="padding: 20px;" action="/room/hotel" method="POST">
+    <h2>Where would you like to book?</h2>
+    <div class="form-group">
+        <label class="mr-sm-2" for="room">Location : </label>
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="locationId" name="locationId" required>
+            <option value="" disabled selected hidden>Choose the location</option>
+            {{#each locations}}
+            <option value="{{dataValues.id}}">{{dataValues.location_name}}</option>
+            {{/each}}
+        </select>
+        <p class="validate" id="hotel-validate" style="display:none;">Please select a location.</p>
+        <br>
+        <div class="form-group">
+            <label class="mr-sm-2" for="checkin">Check-in Date: </label>
+            <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkin" name="checkin" required>
+            <p class="validate" id="checkin-validate" style="display:none;">Please select the day you will check in.</p>
+        </div>
+
+        <div class="form-group">
+            <label class="mr-sm-2" for="checkout">Check-out Date: </label>
+            <input type="date" class="form-control mb-2 mr-sm-2 mb-sm-0" id="checkout" name="checkout" required>
+            <p class="validate" id="checkout-validate" style="display:none;">Please select the day you will check out.
+            </p>
+        </div>
+
+        <label class="mr-sm-2" for="room">Number of Traveller : </label>
+        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="numberOfTraveller" name="numberOfTraveller">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <div>
+            <br>
+        </div>
+        <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="">Search</button>
+</form>

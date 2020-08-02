@@ -1,0 +1,44 @@
+<div style="padding: 10px;  border: 1px solid black; border-collapse: collapse;">
+    <label>Check In Date : {{bookings.checkin}}</label>
+    <br>
+    <label>Check Out Date : {{bookings.checkout}}</label>
+    <br>
+    <label>Amount ( {{bookings.currency}} ) : {{bookings.price}}</label>
+    <br>
+    <label>Booking Type : {{bookings.bookingType}}</label>
+</div>
+<br>
+<br>
+<form style="padding: 20px;" action="/payments" method="POST">
+    <h2> Guest Information : </h2>
+    <br>
+    <div class="form-group">
+        <label class="mr-sm-2" for="firstname">First Name:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="firstname" name="firstname"
+            placeholder="First Name" required>
+        <p class="validate" id="firstname-validate" style="display:none;">Please enter your first name.</p>
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="lastname">Last Name:</label>
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="lastname" name="lastname"
+            placeholder="Last Name" required>
+        <p class="validate" id="lastname-validate" style="display:none;">Please enter your last name.</p>
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="phone">Phone Number:</label>
+        <input type="tel" class="form-control mb-2 mr-sm-2 mb-sm-0" id="phone" name="phone" placeholder="Phone Number"
+            required>
+        <p class="validate" id="phone-validate" style="display:none;">Please enter your phone number.</p>
+    </div>
+    <div class="form-group">
+        <label class="mr-sm-2" for="email">Email:</label>
+        <input type="email" class="form-control mb-2 mr-sm-2 mb-sm-0" id="email" name="email" placeholder="Email"
+            required>
+        <p class="validate" id="email-validate" style="display:none;">Please enter your email.</p>
+    </div>
+    <input type="hidden" name="bookingId" id="bookingId" value="{{bookings.id}}" />
+    <input type="hidden" name="currency" id="currency" value="{{bookings.currency}}" />
+    <input type="hidden" name="price" id="price" value="{{bookings.price}}" />
+    <button type="submit" id="book-room" class="btn btn-big btn-secondary btn-lg" onClick="return empty()">Proceed To
+        Payment</button>
+</form>
