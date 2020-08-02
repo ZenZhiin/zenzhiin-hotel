@@ -3,7 +3,7 @@ const exphbs = require("express-handlebars");
 var methodOverride = require('method-override');
 
 const app = express();
-const port = 3000
+const port = 80
 
 var db = require("./models");
 
