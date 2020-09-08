@@ -1,6 +1,7 @@
 # zenzhiin-hotel
 Mock Hotel Booking system
 
+Prerequisite
 Database : MYSQL
 create database on mysql 
 
